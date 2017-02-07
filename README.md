@@ -1,6 +1,6 @@
 # Casey McClure's Portfolio
 
-## nodefront
+## NodeFront
 
 NodeFront is an E-commerce prototype I built in 2-days, with an Inventory management backend and 
 a dynamic front end. It's an ongoing project and I intend to build it into a fully functional (CMS) 
