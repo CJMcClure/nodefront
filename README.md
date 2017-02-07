@@ -1,7 +1,6 @@
 # Casey McClure's Portfolio
 
-![Casey McClure Headshot]
-(images/casey-mcclure.jpg)
+<img style="height: 100px; width: 100px; border-radius: 100%;" src="images/casey-mcclure.jpg">
 
 ## NodeFront
 
