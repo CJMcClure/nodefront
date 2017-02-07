@@ -1,5 +1,8 @@
 # Casey McClure's Portfolio
 
+![Casey McClure Headshot]
+(images/casey-mcclure.jpg)
+
 ## NodeFront
 
 NodeFront is an E-commerce prototype I built in 2-days, with an Inventory management backend and 
