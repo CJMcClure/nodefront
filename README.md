@@ -7,4 +7,4 @@ a dynamic front end. It's an ongoing project and I intend to build it into a ful
 Content Management System and (IMS) Inventory Management System, for use by small business as a store
 front solution. The front-end will ultimately be built in React or Angular. 
 
-This prototype was built using NodeJS, ExpressJS, Sequelize, & Bootstrap. 
+This prototype was built using NodeJS, ExpressJS, Sequelize, Bootstrap, & Stripe API. 
