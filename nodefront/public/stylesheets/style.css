@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.jumbotron{
+	background-color: #555 !important;
+	color: #FFF !important;
+}
+
+#image{
+	width: 50px;
+}
+
+#editImage{
+	width: 200px;
+}

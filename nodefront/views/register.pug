@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	div(class="container-fluid")
+		div(class="row")
+			form(class="navbar-form" method="post" action="/register")
+				h2 User Registration
+				div(class="input-group")
+					if error
+						if error.allfields
+							p(class="text-danger") #{error.allfields}
+						if error.email
+							p(class="text-danger") #{error.email}
+						if error.password
+							p(class="text-danger") #{error.password}
+						if values 
+							-first = values.first
+							-last  = values.last
+							-email = values.email
+					input(name="first" type="text" class="form-control" placeholder="First Name" value=first)
+					input(name="last" type="text" class="form-control" placeholder="Last Name" value=last)
+					input(name="email" type="email" class="form-control" placeholder="Email" value=email)
+					input(name="password" type="password" class="form-control" placeholder="Password")
+					input(name="password_verify" type="password" class="form-control" placeholder="Verify Password")
+					button(type="submit" class="btn btn-primary") Register

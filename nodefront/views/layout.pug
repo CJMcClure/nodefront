@@ -1,0 +1,54 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+		script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+		script(type="text/javascript" src="https://js.stripe.com/v2/")
+		script(type="text/javascript" src="/javascripts/stripe.js")
+		link(rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+	body
+		div(class='container-fluid')
+			if typeof confirmed != 'undefined'
+				div(class="alert alert-success" role="alert")
+					p(class="text-center") Your order has successfully been placed!
+			if login
+				div(class="alert alert-success" role="alert")
+					p(class="text-center")= login
+			nav(class='navbar navbar-default')
+				a(class="navbar-brand" href="/") Node-Front Commerce
+				if loggedIn != true
+					form(class="navbar-form navbar-right" method="post" action="/login")
+						if error
+							p(class="text-danger") #{error.login}
+						div(class="form-group")
+							input(name="username" type="email" class="form-control" placeholder="Username")
+							input(name="password" type="password" class="form-control" placeholder="Password")
+							button(type="submit" class="btn btn-primary") Login
+						a(class="btn btn-default" href="/register") Register
+				else
+					div(class="navbar-form navbar-right")
+						div(class="btn-group")
+							button(type="button" class="btn btn-default") #{user}'s Account
+							button(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+								span(class="caret")
+								span(class="sr-only") Toggle Dropdown
+							ul(class="dropdown-menu")
+								li
+									a(href="/cart") My Cart
+								li
+									a(href="/history") Order History
+								li 
+									a(href="/profile") Profile
+								li(role="separator" class="divider")
+								li 
+									a(href="/ims") Inventory Managment System
+								li(role="separator" class="divider")
+								li
+									a(href="/logout") Logout				
+		block content
+
+
+			

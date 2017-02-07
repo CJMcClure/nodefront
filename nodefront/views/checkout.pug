@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	div(class="panel panel-default")
+		div(class="panel-heading")
+			h3(class="panel-title") Payment
+		div(class="panel-body")
+			form(action="/purchase" method="POST" id="payment-form")
+				span(class="payment-errors")
+
+				div(class="form-row")
+					label Card Number
+					input(type="text" size="20" data-stripe="number")
+
+				div(class="form-row")
+					label Expiration (MM/YY)
+					input(type="text" size="2" data-stripe="exp_month")
+					input(type="text" size="2" data-stripe="exp_year")
+
+				div(class="form-row")
+					label CVC
+					input(type="text" size="4" data-stripe="cvc")
+				input(type="submit" class="submit" value="Submit Payment")

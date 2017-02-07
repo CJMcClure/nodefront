@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	div(class="panel panel-default")
+		div(class="panel-heading")
+			h3(class="panel-title") Your Cart
+		div(class="panel-body")
+			table(class="table")
+				if typeof cart != 'undefined' && cart.length > 0
+					-orderTotal = 0
+					each product in cart
+						-id = product.id
+						-imgPath = product.img
+						-price = "$" + product.price
+						-orderTotal += product.price
+							tr
+								td 
+									img(id="image" src=imgPath)
+								td= product.name
+								td= price
+								td= product.quantity
+								td
+									form(method="post" action="/cart/remove" class="pull-right")
+										input(name="id" type="hidden" value=id)
+										button(type="submit" class="btn btn-default")
+											span(class="glyphicon glyphicon-remove" aria-hidden="true")
+				else
+					tr
+						td Your cart is empty.
+				tr
+					td
+						p 
+							b Total: $#{orderTotal}.00
+					td
+					td
+					td
+					td
+						form(method="post" action="/checkout" class="pull-right")
+							input(name="total" type="hidden" value=orderTotal)
+							input(type="submit" class="pull-right btn btn-primary" value="Checkout")

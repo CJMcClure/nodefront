@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	-title = action + " Product"
+	-formAction = "/" + action.toLowerCase()
+	if product
+		-id = product.id
+		-name = product.name
+		-description = product.description
+		-price = product.price
+		-quantity = product.quantity
+		-imgPath = product.imgPath
+	
+	ul(class="nav nav-tabs")
+		li(role="presentation") 
+			a(href="/ims") Inventory
+		li(role="presentation" class="active")
+			a(href="/manage") Create/Update
+	h2(class="text-center")= title
+	form(method="post" encType="multipart/form-data" ref="uploadForm" id="uploadForm" action=formAction)
+		if errors
+			if action == "Create"
+				if errors.image
+					p(class="text-danger text-center") #{errors.image}
+			if errors.name
+				p(class="text-danger text-center") #{errors.name}
+			if errors.description
+				p(class="text-danger text-center") #{errors.description}
+			if errors.price
+				p(class="text-danger text-center") #{errors.price}
+			if errors.quantity
+				p(class="text-danger text-center") #{errors.quantity}
+		if action == "Create"
+			div(class="form-group" class="col-sm-6 col-sm-offset-3")
+				label Image
+				input(name="image" type="file" accept="image/*")
+		else
+			img(id="editImage" class="thumbnail img-responsive center-block" src=imgPath)
+			input(name="id" type="hidden" value=id)
+		div(class="form-group" class="col-sm-6 col-sm-offset-3")
+			label Name
+			input(name="name" type="text" class="form-control" placeholder="Frisbee" value=name)
+		div(class="form-group" class="col-sm-6 col-sm-offset-3")
+			label Description
+			input(name="description" type="text" class="form-control" placeholder="Much disc golf fun" value=description)
+		div(class="form-group" class="col-sm-6 col-sm-offset-3")
+			label Price
+			input(name="price" type="text" class="form-control" placeholder="100.00" value=price)
+		div(class="form-group" class="col-sm-6 col-sm-offset-3")
+			label Quantity
+			input(name="quantity" type="number" class="form-control" placeholder="150" value=quantity)
+		div(class="form-group" class="col-sm-6 col-sm-offset-3")
+			button(type="submit" class="btn btn-primary")= action
+			

@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	
+	ul(class="nav nav-tabs")
+		li(role="presentation" class="active") 
+			a(href="/ims") Inventory
+		li(role="presentation") 
+			a(href="/manage") Create/Update
+	div(class="panel-body")
+		div(class="panel panel-default")
+			table(class="table")
+				tr
+					th Image
+					th Name
+					th Description
+					th Price
+					th Quantity
+					th(class="text-right") Actions
+				each product in products
+					-id = product.id
+					-imgPath = product.imgPath;
+					-price = "$" + product.price;
+						tr
+							td 
+								img(id="image" src=imgPath)
+							td= product.name
+							td= product.description
+							td= price
+							td= product.quantity
+							td
+								form(method="post" action="/delete" class="pull-right")
+									input(name="id" type="hidden" value=id)
+									button(type="submit" class="btn btn-default")
+										span(class="glyphicon glyphicon-remove" aria-hidden="true")
+								form(method="post" action="/edit" class="pull-right")
+									input(name="id" type="hidden" value=id)
+									button(type="submit" class="btn btn-default")
+										span(class="glyphicon glyphicon-pencil" aria-hidden="true")
+				
