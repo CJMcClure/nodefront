@@ -1,0 +1,36 @@
+---
+- name: Add Nodefront Server Config
+  template: 
+    src: nginx_server_block.j2 
+    dest: /etc/nginx/sites-available/{{ nginx['domain'] }} 
+    mode: 0700
+
+- name: Enable Nodefront Site Config
+  file: 
+    src: /etc/nginx/sites-available/{{ nginx['domain'] }}
+    dest: /etc/nginx/sites-enabled/{{ nginx['domain'] }}
+    state: link
+
+- name: Install node packages
+  shell: npm install
+  args:
+    chdir: /var/www/nodefront/nodefront
+
+- name: Start node server
+  shell: /usr/local/lib/npm/bin/pm2 start bin/www -f
+  args:
+    chdir: /var/www/nodefront/nodefront
+
+- name: Add nodefront server to pm2 startup script
+  shell: /usr/local/lib/npm/bin/pm2 save
+  notify:
+    - Reload Nginx
+    - Restart MariaDB
+
+ 
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+---
+- name: Create nodeCommerce database
+  mysql_db:
+    name: nodeCommerce
+    state: present
+
+- name: Create non-root user
+  mysql_user:
+    name: "{{ mysql['user'] }}"
+    password: "{{ mysql['password'] }}"
+    priv: 'nodeCommerce.*:ALL'
+    state: present
+ 
+- name: Run Sequelize migrations
+  shell: /usr/local/lib/npm/bin/sequelize db:migrate
+  args:
+    chdir: /var/www/nodefront/nodefront
+
+
+  
+    
+
+
+
+
