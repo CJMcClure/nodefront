@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Casey McClure's Portfolio
 
 <img style="height: 100px; width: 100px; border-radius: 100%;" src="images/casey-mcclure.jpg"/>
@@ -10,3 +11,6 @@ Content Management System and (IMS) Inventory Management System, for use by smal
 front solution. The front-end will ultimately be built in React or Angular. 
 
 This prototype was built using **NodeJS, ExpressJS, Sequelize, Bootstrap, & Stripe API**. 
+=======
+# nodeCommerce
+>>>>>>> 1d80655b8f35691bc52f2cc0344268c542cfa073
