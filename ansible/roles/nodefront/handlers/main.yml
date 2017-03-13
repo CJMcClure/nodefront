@@ -1,0 +1,20 @@
+---
+- name: Start Nginx
+  service: 
+    name: nginx 
+    state: started
+
+- name: Reload Nginx
+  service: 
+    name: nginx 
+    state: reloaded
+
+- name: Stop Nginx
+  service: 
+    name: nginx 
+    state: stopped
+
+- name: Restart MariaDB
+  service: 
+    name: mysql 
+    state: restarted

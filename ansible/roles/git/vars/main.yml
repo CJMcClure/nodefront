@@ -1,0 +1,5 @@
+---
+git:
+  dir: /var/www/nodefront
+  repo: https://github.com/CJMcClure/nodefront
+  branch: master
