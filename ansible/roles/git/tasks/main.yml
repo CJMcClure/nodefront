@@ -1,0 +1,28 @@
+---
+# Start GIT tasks ###########################################################################################
+- file:
+    path: /var/www/nodefront
+    owner: "{{ system['user'] }}"
+    group: www-data
+    state: directory
+    mode: 0755
+
+- name: Setup git in project directory
+  shell: "{{ item }}"
+  with_items:
+     - git init
+     - git remote add origin {{ git['repo'] }}
+     - git pull origin {{ git['branch'] }}
+  args:
+    chdir: "{{ git['dir'] }}"
+  
+
+ 
+
+
+  
+    
+
+
+
+
